@@ -24,8 +24,14 @@ void Catapult::MoveTo(float position, float speedMultiplyer)
 	{
 		GoDown(velocity);
 	}
-	
-	
+	if (encoder.GetDistance() < position)	
+	{
+		GoUp(velocity);
+	}
+	else
+	{
+		motor.Set(0);
+	}
 	
 }
 
